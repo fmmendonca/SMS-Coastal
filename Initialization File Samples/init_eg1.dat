@@ -1,0 +1,27 @@
+OPTYPE   : 1
+
+FORECAST : 3
+RESTART  : 2 5
+
+FORC     : NAM
+TSCONV   : 1
+FSTART   : 8
+
+TSLOCY   : 3
+TSLOCX   : 6
+
+LATLIM   : 9.90 10.79
+LONLIM   : -76.26 -75.26
+
+MODTYPE  : 1
+LEVELS   : 1
+
+INITIALS : monthly
+
+RSTDAY   : thu
+
+FCTDT    : 10
+RSTDT2   : 10
+RSTDT1   : 5
+
+MAILTO   : email1@somewhere.com email2@elsewhere.com
