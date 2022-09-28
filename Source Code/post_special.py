@@ -180,10 +180,10 @@ def convertpde(resdir, outdir, opdate):
     # upload files to PDE SFTP:
     #
     ncs = glob(outdir + "\\*.nc")
-    serv =  "ualg-ocaso.ualg.pt"
-    user = "userftpocaso"
-    pwrd = "iK7re8baYXpsEGLxjkWx"
-    uploadsftp(ncs, opdate.strftime("/PDE/PDE_%y%m%d"), serv, user, pwrd)
+    serv =  "your_server"
+    user = "your_user"
+    pwrd = "your_password"
+    uploadsftp(ncs, "online_directory", serv, user, pwrd)
 
 
 def convertbasic(fmtdir, outdir, opdate):
@@ -225,10 +225,10 @@ def convertbasic(fmtdir, outdir, opdate):
     # # upload to SFTP:
     # #
     # ncs = glob(outdir + "\\*.nc")
-    # serv =  "193.136.227.143"
-    # user = "basic_admin"
-    # pwrd = "basic2019_2021"
-    # ondir = "/storage/thredds/MOHID_WATER/CARTAGENA_100M_22L_1H/"
+    # serv =  "your_server"
+    # user = "your_user"
+    # pwrd = "your_password"
+    # ondir = "online_directory"
     # uploadsftp(ncs, ondir, serv, user, pwrd)
 
 
@@ -375,14 +375,14 @@ def convertbasicforc(forcdir):
     #
     # sources number of outputs/day and online paths:
     #
-    prfxhyd = "/storage/thredds/HYDRODYNAMICS/"
-    prfxatm = "/storage/thredds/METEO/"
+    prfxhyd = "online_directory_path_prefix"
+    prfxatm = "online_directory_path_prefix"
 
-    parms = {"NAM": (8, prfxatm + "NAM/NAM_0.12DEG_1L_3h"),
-             "GFS": (24, prfxatm + "GFS/GFS_0.13DEG_1L_1H"),
-             "AMSEAS": (8, prfxhyd + "AMSEAS/AMSEAS_0.03DEG_40L_3H"),
-             "Mercator": (1, prfxhyd + "MERCATOR/MERCATOR_0.08DEG_50L_1D"),
-             "MercatorH": (24, prfxhyd + "MERCATOR/MERCATOR_0.08DEG_50L_1D")}
+    parms = {"NAM": (8, prfxatm + "online_directory_path_sufix"),
+             "GFS": (24, prfxatm + "online_directory_path_sufix"),
+             "AMSEAS": (8, prfxhyd + "online_directory_path_sufix"),
+             "Mercator": (1, prfxhyd + "online_directory_path_sufix"),
+             "MercatorH": (24, prfxhyd + "online_directory_path_sufix")}
 
     # source number of datasets per day, online path:
     ndsets, ondir = parms.get(path.basename(forcdir))
@@ -409,7 +409,7 @@ def convertbasicforc(forcdir):
     # # upload to SFTP:
     # #
     # ncs = glob(outdir + "\\*.nc")
-    # serv =  "193.136.227.143"
-    # user = "basic_admin"
-    # pwrd = "basic2019_2021"
-    # uploadsftp(ncs, ondir, serv, user, pwrd)
+    # serv =  "your_server"
+    # user = "your_user"
+    # pwrd = "your_password"
+    # uploadsftp(ncs, "online_directory", serv, user, pwrd)
