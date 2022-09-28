@@ -25,8 +25,8 @@ def mailreport(email_send, reportsubject, body, filename):
             return
         print(addrs)
         
-        email_user = 'hidrotec@ualg.pt'
-        email_password = '#H7385'
+        email_user = 'email_address@somewhere.com'
+        email_password = 'my_password'
         
         try:
             server = smtplib.SMTP('smtp.office365.com', 587)
