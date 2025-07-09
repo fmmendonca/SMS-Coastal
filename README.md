@@ -1,5 +1,7 @@
 # SMS-Coastal
 
+line changed in vscode
+
 under construction
 
 This is the repository of the current version of the Simulation Management System for Coastal Operational Models (SMS-Coastal), developed at the Centre for Marine and Environmental Research (CIMA) of the University of Algarve (UAlg) in Portugal.
