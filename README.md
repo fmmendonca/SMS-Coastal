@@ -1,15 +1,12 @@
 # SMS-Coastal
 
-line changed in vscode
+[CONSTRUCTION SITE]
 
-under construction
+The Simulation Management System for Coastal Operational Models (SMS-Coastal) is a Python-based program built to run and control operational forecast simulations of MOHID-based ([MOHID oficial GitHub](https://github.com/Mohid-Water-Modelling-System)) applications.
 
-This is the repository of the current version of the Simulation Management System for Coastal Operational Models (SMS-Coastal), developed at the Centre for Marine and Environmental Research (CIMA) of the University of Algarve (UAlg) in Portugal.
+## Repository content
 
-## Overview
-
-SMS-Coastal is written in Python programming language and is designed to automate all the processes involved in the operational forecasting of coastal models built based on to the MOHID Modelling System ([MOHID Official repository](https://github.com/Mohid-Water-Modelling-System/Mohid)).
-
+## How to use SMS-Coastal
 
 Add anaconda to Path in system environment variables.  
 For a standard installation the paths should be:  
