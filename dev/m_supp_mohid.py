@@ -119,11 +119,15 @@ class Mohid:
     def runsim(
             self, domains: Sequence[str],
             ini: datetime, fin: datetime) -> None:
-        """
+        """Runs a MOHID Water simulation. Pre-processing consists of
+        checking the Nomfich.dat file and updating the dates in the
+        Model_1.dat file, for each model domain. Then, it writes the
+        Tree.dat file in the working directory.
+        
         Keyword arguments:
-        - domains:;
-        - ini:
-        - fin:
+        - domains: list of paths of each domain of the model;
+        - ini: simulation start date and time;
+        - fin: simulation end date and time.
         """
 
         # First domain executable folder should
