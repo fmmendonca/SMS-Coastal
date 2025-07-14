@@ -14,7 +14,7 @@ The Simulation Management System for Coastal Operational Models (SMS-Coastal) is
 
 SMS-Coastal needs Python (version >= 3.10) and the modules listed in the `envmake.yml` file. A working environment for the program can be easily created with `conda`. To install Anaconda or Miniconda visit [Installing conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) from Conda website.
 
-After downloading or cloning this repository, open the installed `conda` shell on the destination folder and run the following:
+After downloading or cloning this repository, open the installed `conda` terminal in the destination folder and run the following:
 
 ```
 conda update conda
@@ -30,14 +30,10 @@ python ./program_main.py
 
 ### Schedule SMS-Coastal
 
-Add anaconda to Path in system environment variables.  
-For a standard installation on Windows the paths should be:  
-C:\Users\username\AppData\Local\miniconda3\condabin  
-C:\Users\username\AppData\Local\miniconda3\Scripts  
-This will enable cmd to call anacaonda exes.  
+On computers running the Windows operating system, the easiest way to schedule a task is by creating a `.bat` file in Task Scheduler. SMS-Coastal can be scheduled to run using the file `.\source\run_smsc.bat`. To run this file correctly, Conda’s scripts and binaries must be registered in the system’s `Path` variable. For a standard Miniconda installation, the required paths are:
 
-Create a .bat file to call sms-coastal and its respective conda environment.  
-Write the following lines in the file:  
-call activate hidrotec && python .\program_main.py  
-timeout /t 86400  
-
+```
+C:\Users\<username>\AppData\Local\miniconda3\condabin
+C:\Users\<username>\AppData\Local\miniconda3\Scripts
+```
+Ensure the paths are added to the system's `Path` variable, otherwise the Windows terminal won't recognize Conda commands.
