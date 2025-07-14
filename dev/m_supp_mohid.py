@@ -6,7 +6,14 @@
 #
 # Created : 2023.07.12
 #
-# Updated : 2025.07.13
+# Updated : 2025.07.14
+#
+# Descrip : Contains a class to perform operations with MOHID executables.
+#           Each method represents an operation. A practical use case for
+#           this module is included at the end of the code.
+#           Available operations:
+#           - runsim: run a simulation with MOHIDWater.exe;
+#           - other operations soon.
 #
 # ###########################################################################
 
