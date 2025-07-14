@@ -1,0 +1,44 @@
+{
+    "opdate": "2023 04 23",
+    "startime": 12,
+
+    "forecast": [7],
+    "dis_hindcast": [2, 4],
+    
+    "generaldata": ".\\sim\\General Data",
+    "outdir": ".\\outputs",
+    
+    "domains":[
+        ".\\sim\\soma_L0",
+        ".\\sim\\soma_L0\\soma_L1",
+        ".\\sim\\soma_L0\\soma_L1\\soma_L2"
+    ],
+    "dis_domdts": [[60, 60, 60], [10, 20, 30], [5, 10, 15]],
+    "domdts": [[60], [30], [15]],
+    
+    "continuous": [
+        ".\\outputs\\fins"
+    ],
+
+    "keepalive": false,
+    "initials": false,        
+    "fsrch": [
+        ".\\forc\\mercator_soma_L1-*.hdf5",
+        ".\\forc\\skiron_soma_L2-*.hdf5",
+        ".\\forc\\skiron_soma_L1-*.hdf5"
+    ],
+
+    "lastfins": true,
+    "keepres": -99,
+
+    "postops": true,
+    "level0": true,
+    
+    "convncjson": ".\\outputs\\hdftonc.json",
+    "thredds": false,
+
+    "extdisk": [
+        "\\\\models\\test",
+        "\\\\models-backup\\test"
+    ]
+}

@@ -4,6 +4,12 @@ The Simulation Management System for Coastal Operational Models (SMS-Coastal) is
 
 ## Repository content
 
+- dev: development version of SMS-Coastal;
+
+- source: current version of SMS-Coastal;
+
+- envmake.yml: YAML file containing all the modules needed to run SMS-Coastal in an anaconda/miniconda environment.
+
 ## How to use SMS-Coastal
 
 Add anaconda to Path in system environment variables.  

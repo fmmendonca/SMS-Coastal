@@ -1,0 +1,8 @@
+{  
+    "mailto": ["somewhere@overtherainbow.com", "elsewehere@beyond.com"],
+    "mail": "sendermail@here.com",
+    "password": "sendersupersecret_Password",
+    "host": "smtp server",
+    "port": 587,
+    "subject": "Report "
+}

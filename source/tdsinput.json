@@ -1,0 +1,6 @@
+{
+    "host" : "hostname",
+    "user" : "username",
+    "pswd" : "mysupersecretPassword",
+    "dir"  : "/dir/path/in/TDS/"
+}

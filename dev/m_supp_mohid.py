@@ -9,7 +9,7 @@
 # Updated : 2025.07.13
 #
 # ###########################################################################
-import pdb
+
 from datetime import datetime
 from os import chdir, getcwd, path
 from subprocess import run
@@ -117,15 +117,16 @@ class Mohid:
             for line in lines: dat.write(line)
 
     def runsim(
-            self, domains: Sequence[str],
+            self, domains: Sequence[str], runid: int,
             ini: datetime, fin: datetime) -> None:
         """Runs a MOHID Water simulation. Pre-processing consists of
         checking the Nomfich.dat file and updating the dates in the
-        Model_1.dat file, for each model domain. Then, it writes the
+        Model.dat file, for each model domain. Then, it writes the
         Tree.dat file in the working directory.
         
         Keyword arguments:
         - domains: list of paths of each domain of the model;
+        - runid: simulation id, identified by the number of the .dat files;
         - ini: simulation start date and time;
         - fin: simulation end date and time.
         """
@@ -141,16 +142,18 @@ class Mohid:
             self.goterror = True
             return
             
-        # Check nomfichs and update Model.dat:
+        # Check domains:
         #
         pos = 0
 
         while not self.goterror and pos < len(domains):
+            # Nomfich.dat file:
             datfile = path.join(exedirs[pos], "Nomfich.dat")
             self.chkfile(datfile)
             if self.goterror: continue
 
-            datfile = path.join(domains[pos], "data", "Model_1.dat")
+            # Update Model.dat:
+            datfile = path.join(domains[pos], "data", f"Model_{runid}.dat")
             self.update_keyword(
                 datfile, "START", ini.strftime("%Y %m %d %H %M %S"),
             )
@@ -158,7 +161,7 @@ class Mohid:
             self.update_keyword(
                 datfile, "END", fin.strftime("%Y %m %d %H %M %S"),
             )
-            
+
             # Loop control variable:
             pos+=1
         
@@ -194,11 +197,21 @@ class Mohid:
         self.chklog()
 
 
-# Test module:
-#
-domains = ("D:\\soma\\soma_L0",)
-ini = datetime(2025,12,1)
-fin = datetime(2025,12,5)
+if __name__ == "__main__":
+    # To test or use the module as a standalone:
+    #
+    
+    # Run a simulation:
+    #
+    domains = ("D:\\soma\\soma_L0", "D:\\soma\\soma_L1")  # Model domains.
+    ini = datetime(2025,12,1)         # Simulation start date and time.
+    fin = datetime(2025,12,5)         # Simulation end date and time.
+    mexe = "D:\\soma\\mohid"          # Location of MOHIDWater.exe.
+    wkdir = "D:\\soma\\soma_L0\\exe"  # Simulation working directory.
+    runid = 1                         # Simulation ID.
 
-x = Mohid("D:\\soma\\mohid", "D:\\soma\\soma_L0\\exe")
-x.runsim(domains, ini, fin)
+    mohid = Mohid(mexe, wkdir)              # Create mohid object.
+    mohid.runsim(domains, runid, ini, fin)  # run the simulation.
+
+    # Other operations soon:
+    #
