@@ -205,7 +205,7 @@ class Mohid:
 
 
 if __name__ == "__main__":
-    # To test or use the module as a standalone:
+    # To test or use this module as a standalone:
     #
     
     # Run a simulation:
