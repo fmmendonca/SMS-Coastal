@@ -30,7 +30,7 @@ python ./program_main.py
 
 ### Schedule SMS-Coastal
 
-On computers running the Windows operating system, the easiest way to schedule a task is by creating a `.bat` file in Task Scheduler. SMS-Coastal can be scheduled to run using the file `.\source\run_smsc.bat`. To run this file correctly, Conda’s scripts and binaries must be registered in the system’s `Path` variable. For a standard Miniconda installation, the required paths are:
+On computers running the Windows operating system, the easiest way to schedule a task is by creating a `.bat` file and link it in Task Scheduler. SMS-Coastal can be scheduled to run using the file `.\source\run_smsc.bat`. To run this file correctly, Conda’s scripts and binaries must be registered in the system’s `Path` variable. For a standard Miniconda installation, the required paths are:
 
 ```
 C:\Users\<username>\AppData\Local\miniconda3\condabin
