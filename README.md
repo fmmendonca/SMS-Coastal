@@ -36,4 +36,4 @@ On computers running the operating system Windows, the easiest way to schedule a
 C:\Users\<username>\AppData\Local\miniconda3\condabin
 C:\Users\<username>\AppData\Local\miniconda3\Scripts
 ```
-Find the installation paths in your computer and ensure they are added to the system's `Path` variable, otherwise the Windows terminal won't recognize Conda commands.
+Find the installation paths in your computer and ensure they are added to the system's `Path` variable, otherwise the Windows terminal won't recognize Conda commands when `.bat` file is called.
