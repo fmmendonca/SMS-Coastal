@@ -10,6 +10,8 @@ The Simulation Management System for Coastal Operational Models (SMS-Coastal) is
 
 - `envmake.yml`: YAML file containing all the modules needed to run SMS-Coastal in an anaconda/miniconda environment.
 
+This repository does not include MOHID executables and libraries, which are required to run SMS-Coastal. They can be obtained in MOHID official channels.
+
 ## How to use SMS-Coastal
 
 SMS-Coastal needs Python (version >= 3.10) and the modules listed in the `envmake.yml` file. A working environment for the program can be easily created with `conda`. To install Anaconda or Miniconda visit [Installing conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) from Conda website.
