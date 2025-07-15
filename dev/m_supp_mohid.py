@@ -6,7 +6,7 @@
 #
 # Created : 2023.07.12
 #
-# Updated : 2025.07.14
+# Updated : 2025.07.15
 #
 # Descrip : Contains a class to perform operations with MOHID executables.
 #           Each method represents an operation. A practical use case for
@@ -220,5 +220,14 @@ if __name__ == "__main__":
     mohid = Mohid(mexe, wkdir)              # Create mohid object.
     mohid.runsim(domains, runid, ini, fin)  # run the simulation.
 
+    # Run a sequence of simulations:
+    mohid = Mohid(mexe, wkdir)
+    
+    for runid in (1, 2, 3):
+        # escape loop:
+        if mohid.goterror: break
+            
+        mohid.sunsim(domains, runid, ini, fin)    
+    
     # Other operations soon:
     #
