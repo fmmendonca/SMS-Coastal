@@ -8,7 +8,7 @@ The Simulation Management System for Coastal Operational Models (SMS-Coastal) is
 
 - `source`: current version of SMS-Coastal;
 
-- `envmake.yml`: YAML file containing all the modules needed to run SMS-Coastal in an Conda environment.
+- `envmake.yml`: YAML file containing all the modules needed to run SMS-Coastal in a Conda environment.
 
 This repository does not include MOHID executables and libraries, which are required to run SMS-Coastal. They can be obtained from MOHID official channels.
 
