@@ -221,13 +221,11 @@ if __name__ == "__main__":
     mohid.runsim(domains, runid, ini, fin)  # run the simulation.
 
     # Run a sequence of simulations:
-    mohid = Mohid(mexe, wkdir)
-    
     for runid in (1, 2, 3):
         # escape loop:
         if mohid.goterror: break
             
-        mohid.sunsim(domains, runid, ini, fin)    
+        mohid.runsim(domains, runid, ini, fin)
     
     # Other operations soon:
     #
