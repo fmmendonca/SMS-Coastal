@@ -8,7 +8,7 @@
 #
 # Updated : 2025.07.15
 #
-# Descrip : Contains a class to perform operations with MOHID executables.
+# Descrp. : Contains a class to perform operations with MOHID executables.
 #           Each method represents an operation. A practical use case for
 #           this module is included at the end of the code.
 #           Available operations:
