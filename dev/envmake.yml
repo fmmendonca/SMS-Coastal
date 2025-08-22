@@ -1,0 +1,19 @@
+name: smsc
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - scipy
+  - pandas
+  - requests
+  - h5py
+  - netCDF4
+  - xarray
+  - dask
+  - bottleneck
+  - pygrib
+  - pip:
+    - paramiko
+    - copernicusmarine
+    
