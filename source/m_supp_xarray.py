@@ -6,7 +6,7 @@
 #
 # Created : Feb. 22nd, 2024.
 #
-# Updated : May 17th, 2024.
+# Updated : August 26th, 2025.
 #
 # Descrp. : Code with common operations using xarray.
 #           - dimencd and fldencd: dictionaries with encoding parameters
@@ -275,7 +275,7 @@ def mergencs(ncs: Sequence[str], fout: str) -> None:
     
     for ntc in tqdm(ncs):
         dstmp = xr.open_dataset(ntc, use_cftime=True)
-        dset = xr.merge([dset, dstmp])
+        dset = xr.merge([dset, dstmp], compat="no_conflicts", join="outer")
         dstmp.close()
         del dstmp
     
