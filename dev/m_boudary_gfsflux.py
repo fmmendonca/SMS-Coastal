@@ -64,7 +64,7 @@ def getgfs(outdir: str, runid: str, opdate: date) -> Tuple[str, int]:
     
     Keyword arguments:
     - outdir: output directory;
-    - runid: GFS Sflux run ID
+    - runid: GFS Sflux run ID;
     - opdate: download process date.
     """
 
