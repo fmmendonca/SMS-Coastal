@@ -103,3 +103,42 @@ OPERATION_n:
 ```
 
 SMS-Coastal processes operations sequentially, from `OPERATION_1` through `OPERATION_n`. Each operation is defined by a corresponding `OPERATION_i` keyword, where `i` denotes its numeric index. The `ENABLED` parameter controls whether a given operation is executed, allowing operations to be temporarily disabled without removing their configuration. Each operation is associated with a unique name defined by the `TYPE` parameter. The available operation types supported by SMS-Coastal are described in the following sections.
+
+## Operation Dates
+Each operation in SMS-Coastal requires a defined time period for execution, which is specified using the parameters `OPDATE` and `DTDAYS` in the initialization file.
+
+The base temporal unit in SMS-Coastal is one day, which therefore defines the minimum duration of an operation. The start date is defined by the `OPDATE` parameter, while the duration (in days) is specified by `DTDAYS`:
+```yaml
+OPERATION_1:
+  ENABLED: !!bool TRUE
+  TYPE: !!str "sample operation"
+  OPDATE: !!str "2026-04-17"
+  DTDAYS: !!int 3
+  ...
+```
+
+In practice, SMS-Coastal internally represents the operation period as a range derived from `OPDATE` and `DTDAYS`. For example, the configuration above is interpreted as:
+```python
+dtdays = [0, 3]
+dates  = ["2026-04-17", "2026-04-20"]
+```
+
+`DTDAYS` can also assume a negative value, indicating a backward time range in which the end date is defined by `OPDATE`:
+```yaml
+OPERATION_1:
+  ENABLED: TRUE
+  TYPE: "sample operation"
+  OPDATE: "2026-04-17"
+  DTDAYS: -2
+  ...
+```
+
+In this case, the configuration is interpreted as:
+```python
+dtdays = [-2, 0]
+dates  = ["2026-04-15", "2026-04-17"]
+```
+
+>**Note**:
+>
+>Since SMS-Coastal is designed for operational use, the `OPDATE` parameter can assume the value "today". In this case, the current system date is used at runtime, allowing operations to be executed relative to the day of execution.
