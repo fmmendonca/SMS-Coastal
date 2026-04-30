@@ -61,3 +61,45 @@ Becomes:
 ```powershell
 (smsc) >
 ```
+
+# General Use
+
+After downloading or cloning the SMS-Coastal repository, activate the corresponding Conda environment and execute the main program:
+
+```powershell
+(smsc) > python .\program_main.py
+```
+
+In the last line, SMS-Coastal was launched in the current working directory. However, to organize simulation cases, the application can also be called from a different folder: 
+
+```powershell
+# Create a folder to store model data:
+(smsc) > mkdir my_model
+# Enter the folder:
+(smsc) > cd my_model
+# Call SMS-Coastal to run inside 'my_model':
+(smsc) > python ..\program_main.py
+```
+
+At startup, SMS-Coastal checks for the presence of the initialization file (`initsmsc.yml`) in the current working directory (e.g., `my_model`). This file contains all user-specified parameters required to select and run operations. It follows the [YAML](https://yaml.org/) format and is structured as follows:
+
+```yaml
+OPERATION_1:
+  ENABLED: !!bool TRUE
+  TYPE: !!str "operation 1 name"
+  ...
+
+OPERATION_2:
+  ENABLED: !!bool TRUE
+  TYPE: !!str "operation 2 name"
+  ...
+
+...
+
+OPERATION_n:
+  ENABLED: !!bool TRUE
+  TYPE: !!str "operation n name"
+  ...
+```
+
+SMS-Coastal processes operations sequentially, from `OPERATION_1` through `OPERATION_n`. Each operation is defined by a corresponding `OPERATION_i` keyword, where `i` denotes its numeric index. The `ENABLED` parameter controls whether a given operation is executed, allowing operations to be temporarily disabled without removing their configuration. Each operation is associated with a unique name defined by the `TYPE` parameter. The available operation types supported by SMS-Coastal are described in the following sections.
