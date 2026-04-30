@@ -1,0 +1,56 @@
+# STANDARD PARAMETERS #######################################################
+OPDATE: !!str &OPDATE "today or YYYY-MM-DD"
+
+GRID: &GRID
+  - !!float 35.5
+  - !!float 40
+  - !!float -12
+  - !!float -5
+
+MAILING: &MAILING_SETTINGS
+  ACTIVE: !!bool TRUE
+  SUBJECT: !!str "not mandatory"
+  RECIPIENTS:
+    - !!str "someone@somewhere.com"
+    - !!str "anotherone@overtherainbow.com"
+  SENDER: !!str "master@ofpuppets.com"
+  PASSWORD: !!str "nooneknows"
+  HOST: !!str "smtp.office365.com"
+  PORT: !!int 587
+
+# OPERATIONS ################################################################
+OPERATION_1:
+  ACTIVE: !!bool TRUE
+  TYPE: !!str "skiron"
+
+OPERATION_2:
+  ACTIVE: !!bool FALSE
+  TYPE: !!str "cmems"
+
+  MAILING:
+    <<: *MAILING_SETTINGS
+    SUBJECT: "SOMA CMEMS "
+  
+  ROOTDIR: !!str "D:\\smsc-test"
+  OPDATE: *OPDATE 
+  
+  DOWNLOAD: !!bool TRUE
+  CREDENTIALS: 
+    - !!str "cmems user"
+    - !!str "cmems password"
+  CFCONV:
+    ACTIVE: FALSE
+    MODHIEXE: !!str "path to exe"
+    MOHIDDAT: !!str "dat file in ROOTDIR"
+    FOUT: !!str "output file in ROOTDIR, defined in MOHIDDAT"
+  INTERPOLATION:
+    ACTIVE: FALSE
+    STAGE_1:
+      MODHIEXE: !!str "path to exe"
+      MOHIDDAT: !!str "dat file in ROOTDIR"
+      FOUT: !!str "output file in ROOTDIR, defined in MOHIDDAT"
+      BATIM: !!str "path to the bathymetry file obtained in CFCONV"
+
+OPERATION_3:
+  ACTIVE: !!bool TRUE
+  TYPE: !!str "simulation"
