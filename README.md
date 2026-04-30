@@ -161,5 +161,33 @@ OPERATION_2:
 
 In the previous example, the date is defined in `COMMON_OPDATE` and anchored using `&DATEALL`. Each operation then references this value through the alias `*DATEALL`. Additional examples of reusable parameters are provided in the following sections.
 
+## Mailing Configuration
 
+Some operations in SMS-Coastal support email status reporting when this feature is enabled. The mailing configuration can be defined once and reused across operations using shared parameters:
 
+```yaml
+MAILING: &MAILING_SETTINGS
+  ACTIVE: !!bool TRUE
+  SUBJECT: !!str "not mandatory"
+  RECIPIENTS:
+    - !!str "someone@somewhere.com"
+    - !!str "anotherone@overtherainbow.com"
+  SENDER: !!str "master@ofpuppets.com"
+  PASSWORD: !!str "nooneknows"
+  HOST: !!str "smtp.office365.com"
+  PORT: !!int 587
+
+OPERATION_1:
+  ENABLED: !!bool TRUE
+  TYPE: !!str "operation_name"
+  MAILING:
+    <<: *MAILING_SETTINGS
+    SUBJECT: !!str "OP.#1 STATUS"
+
+OPERATION_2:
+  ENABLED: !!bool TRUE
+  TYPE: !!str "operation_name"
+  MAILING:
+    <<: *MAILING_SETTINGS
+    SUBJECT: !!str "OP.#2 STATUS"
+```
