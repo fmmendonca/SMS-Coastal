@@ -117,7 +117,7 @@ OPERATION_1:
   ...
 ```
 
-In practice, SMS-Coastal internally represents the operation period as a range derived from `OPDATE` and `DTDAYS`. For example, the configuration above is interpreted as:
+`OPDATE` is defined as a string in ISO 8601 date format (YYYY-MM-DD). In practice, SMS-Coastal internally represents the operation period as a range derived from `OPDATE` and `DTDAYS`. For example, the configuration above is interpreted as:
 ```python
 dtdays = [0, 3]
 dates  = ["2026-04-17", "2026-04-20"]
@@ -142,3 +142,24 @@ dates  = ["2026-04-15", "2026-04-17"]
 >**Note**:
 >
 >Since SMS-Coastal is designed for operational use, the `OPDATE` parameter can assume the value "today". In this case, the current system date is used at runtime, allowing operations to be executed relative to the day of execution.
+
+## Shared Parameters
+
+The initialization file allows the definition of shared parameters that can be reused across multiple operations, which are implemented using anchors and aliases features from the YAML format. This is particularly useful for parameters such as `OPDATE`:
+
+```yaml
+GENERAL_OPDATE: &DATEALL "2026-04-17"
+
+OPERATION_1:
+  OPDATE: *DATEALL
+  ...
+
+OPERATION_2:
+  OPDATE: *DATEALL
+  ...
+```
+
+In the previous example, the date is defined in `COMMON_OPDATE` and anchored using `&DATEALL`. Each operation then references this value through the alias `*DATEALL`. Additional examples of reusable parameters are provided in the following sections.
+
+
+
